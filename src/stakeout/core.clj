@@ -1,6 +1,7 @@
 (ns stakeout.core
   (:use [clojure.contrib.duck-streams])
   (:use [clojure.contrib.shell-out])
+  (:use [org.satta.glob])
   (:gen-class))
 
 (def
@@ -15,9 +16,9 @@
     (> (.lastModified file) (- (.getTime (java.util.Date.)) *check-period*))))
 
 (defn get-files
-  "Gets the files in a given directory and its subdirectories."
-  [dir-path]
-  (filter #(not (.isDirectory %)) (file-seq (file-str dir-path))))
+  "Gets files based on a given glob"
+  [glob-path]
+  (glob glob-path))
 
 (defn files-modified-in-dir? 
   "Determine whether any files have been modified in the 
