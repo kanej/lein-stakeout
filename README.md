@@ -7,17 +7,15 @@ a file in one of the directories it is monitoring.
 
 ## Usage
 
-    lein stakeout 'src\/*\/*.clj' 'lein test'
+    lein stakeout 'src/*/*.clj' 'lein test'
 
 ## Installation
 
-Building requires leinigen.
+Stakeout is a leiningen plugin. To install it, modify your project.clj file to include:
 
-    lein deps
-    lein compile
-    lein jar
-    mv stakeout.jar lib/
-    lein stakeout 'src/*/*.clj' 'lein test'
+    :dev-dependencies [[lein-stakeout "0.1.0"]]
+
+Run `lein deps` to download the plugin from clojars.
 
 ## License
 
