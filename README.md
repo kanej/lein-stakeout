@@ -1,6 +1,6 @@
 # stakeout
 
-A Clojure version of Topfunky's Ruby Stakeout script.
+A Clojure version of [Topfunky](http://github.com/topfunky)'s [Ruby Stakeout script](http://github.com/topfunky/stakeout).
 
 Stakeout executes a given shell command whenever it detects a modification in 
 a file in one of the directories it is monitoring.
