@@ -17,8 +17,9 @@
 
 (defn get-files
   "Gets files based on a given glob"
-  [glob-path]
-  (glob glob-path))
+  [glob-paths-as-string]
+  (let [glob-paths (filter #(not (= "" %)) (.split glob-paths-as-string " "))]
+    (apply concat (map #(glob %) glob-paths))))
 
 (defn files-modified-in-dir? 
   "Determine whether any files have been modified in the 
@@ -31,7 +32,7 @@
   [command]
   (println (sh "bash" :in command)))
 
-(defn stakeout
+(defn stakeout-rec
   "Continously check whether files have been
    modified and execute the given command if they have."
   [dir-path command]
@@ -43,4 +44,4 @@
 (defn -main [& args]
   (do
     (println "Watching directory ...")
-    (stakeout (first args) (second args))))
+    (stakeout-rec (first args) (second args))))

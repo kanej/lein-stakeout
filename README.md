@@ -7,7 +7,7 @@ a file in one of the directories it is monitoring.
 
 ## Usage
 
-> java -jar stakeout-standalone.jar 'src/*/*.clj' 'lein test'
+> lein stakeout 'src/*/*.clj' 'lein test'
 
 ## Installation
 
@@ -15,14 +15,9 @@ Building requires leinigen.
 
 > lein deps
 > lein compile
-> lein uberjar
-
-> java -jar stakeout-standalone.jar 'src/*/*.clj' 'lein test'
-
-## TODO
-
-1. Convert to actual lein plugin
-2. Add support for 
+> lein jar
+> mv stakeout.jar lib/
+> lein stakeout 'src/*/*.clj' 'lein test'
 
 ## License
 

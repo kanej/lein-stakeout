@@ -43,6 +43,12 @@
     (is (= (str "./" subfolder-dir "/sub2/afternoon.clj") (.toString (nth files 2))))
     (is (= (str "./" subfolder-dir "/sub2/morning.clj")   (.toString (nth files 3))))))
 
+(deftest can-retrieve-multiple-globs
+  (let [files (get-files "test/stakeout/dummy/example.clj test/stakeout/dummy/readme.md")]
+    (is (= 2 (count files)))
+    (is (= "./test/stakeout/dummy/example.clj" (.toString (first files))))
+    (is (= "./test/stakeout/dummy/readme.md"   (.toString (second files))))))
+
 ;; Files modified in directory?
 (deftest can-detemine-whether-a-dir-contains-recently-modified-files
   (touch "./test/stakeout/subfolderdummy/sub1/bye.clj")
