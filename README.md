@@ -2,12 +2,14 @@
 
 A Clojure version of [Topfunky](http://github.com/topfunky)'s [Ruby Stakeout script](http://github.com/topfunky/stakeout).
 
-Stakeout executes a given shell command whenever it detects a modification in 
-a file in one of the directories it is monitoring.
+Stakeout monitors a set of directories for modifications to their files. When a modification
+is detected Stakeout executes the command you gave it.
 
 ## Usage
 
-    lein stakeout 'src/*/*.clj' 'lein test'
+An example usage would be to run all tests whenever a change is made to a clojure file:
+
+    lein stakeout 'src/*/*.clj test/*/*.clj' 'lein test'
 
 ## Installation
 
